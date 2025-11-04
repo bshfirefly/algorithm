@@ -1,13 +1,31 @@
 {
+  // -----------------------------------------------------------------
+  // 1. 编辑器核心设置 (Editor Core)
+  // -----------------------------------------------------------------
   "editor.fontSize": 14,
+  "editor.fontFamily": "Google Sans Code",
   "editor.fontLigatures": true,
-
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
+  "editor.wordWrap": "on", // 专业设置：对 Markdown 和文档友好
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary", // 只在选中时显示空格
+  "editor.cursorBlinking": "smooth",
+  "editor.smoothScrolling": true,
+  "editor.formatOnPaste": true, // 专业设置：粘贴时自动格式化
+  "editor.linkedEditing": true,
+  "breadcrumbs.enabled": true,
+  "editor.guides.indentation": true, // 显示缩进指南
+  "editor.guides.bracketPairs": "active", // 高亮活动的括号对
 
+  // -----------------------------------------------------------------
+  // 2. 文件与工作区 (Files & Workbench)
+  // -----------------------------------------------------------------
   "files.autoSave": "onFocusChange",
-  "files.eol": "\n",
+  "files.eol": "\n", // 强制 LF，专业设置：跨平台团队协作必备
+  "files.insertFinalNewline": true, // 专业设置：文件末尾保留一个空行
+  "files.trimTrailingWhitespace": true, // 专业设置：自动删除行尾多余空格
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -22,55 +40,28 @@
     "**/.factorypath": true,
     "**/__pycache__": true
   },
+  // 专业设置：推荐安装 "Material Icon Theme" 插件以获得最佳体验
 
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "boundary",
-  "editor.cursorBlinking": "smooth",
-  "editor.smoothScrolling": true,
-  "breadcrumbs.enabled": true,
-  "editor.linkedEditing": true,
+  // -----------------------------------------------------------------
+  // 3. Git 集成
+  // -----------------------------------------------------------------
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.branchProtection": ["main", "master"], // 专业设置：防止误删主分支
+  "diffEditor.ignoreTrimWhitespace": false,
 
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true
-  },
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.terminal.activateEnvironment": true,
-  "python.analysis.typeCheckingMode": "basic",
-
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
+  // -----------------------------------------------------------------
+  // 4. Web 开发 (JS/TS/React/JSON) - 设为默认
+  // -----------------------------------------------------------------
+  // 将 Prettier 和 ESLint 设为所有文件的“默认”格式化和保存操作
   "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
-
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+
+  // ESLint 验证的目标文件类型
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -78,11 +69,41 @@
     "typescriptreact"
   ],
 
+  // Prettier 的个人风格配置
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+
+  // 语言的特定设置（主要用于重申默认值或特定覆盖）
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
 
-  "git.autofetch": true,
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  // -----------------------------------------------------------------
+  // 5. Python 开发 (覆盖默认值)
+  // -----------------------------------------------------------------
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.typeCheckingMode": "basic",
+
+  // 针对 Python 的特定覆盖
+  "[python]": {
+    // 覆盖默认的 formatter
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+
+    // 覆盖默认的 codeActionsOnSave（!! 关键修复 !!)
+    // 这里使用 "explicit" 来确保它与 ESLint 的 "explicit" 行为一致
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+    // 注意：不再需要 "tabSize" 和 "insertSpaces"，因为全局设置已处理
+  }
 }
