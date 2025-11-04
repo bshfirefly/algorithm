@@ -1,0 +1,24 @@
+# .editorconfig
+
+# 这是根配置文件
+root = true
+
+# 匹配所有文件
+[*]
+indent_style = space     # 缩进使用空格
+indent_size = 2          # 默认缩进大小为 2
+end_of_line = lf         # 换行符为 LF
+charset = utf-8          # 文件编码为 utf-8
+trim_trailing_whitespace = true # 去除行尾多余空格
+insert_final_newline = true     # 文件末尾保留一个空行
+
+# 仅匹配 Python 文件
+[*.py]
+indent_style = space
+indent_size = 4          # 覆盖：Python 文件缩进为 4
+
+# 匹配 Markdown 文件
+[*.md]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false # Markdown 中行尾空格可能有意义
