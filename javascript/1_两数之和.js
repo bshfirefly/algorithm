@@ -18,7 +18,6 @@ console.log(twoSum([1,2,3,4,5],7))
 const findAllSumsMap = function (nums, target) {
     const results = [];
     const dict = new Map(); // 存储: number -> [index1, index2, ...]
-
     for (let i = 0; i < nums.length; i++) {
         const currentNum = nums[i];
         const diff = target - currentNum;
