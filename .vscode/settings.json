@@ -2,7 +2,7 @@
   // -----------------------------------------------------------------
   // 1. 编辑器核心设置 (Editor Core)
   // -----------------------------------------------------------------
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.fontFamily": "Google Sans Code",
   "editor.fontLigatures": true,
   "editor.tabSize": 4,
@@ -18,7 +18,7 @@
   "breadcrumbs.enabled": true,
   "editor.guides.indentation": true, // 显示缩进指南
   "editor.guides.bracketPairs": "active", // 高亮活动的括号对
-
+  "editor.lineHeight": 1.4,
   // -----------------------------------------------------------------
   // 2. 文件与工作区 (Files & Workbench)
   // -----------------------------------------------------------------

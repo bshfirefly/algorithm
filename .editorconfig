@@ -1,24 +1,77 @@
 # .editorconfig
-
-# 这是根配置文件
+# ----------------------------------------------------------------------
+# 这是一个根配置文件，EditorConfig 将停止在父目录中查找
 root = true
 
-# 匹配所有文件
+# ----------------------------------------------------------------------
+# [!] 全局默认配置 (适用于所有文件)
+# ----------------------------------------------------------------------
+# 这是您项目的主要风格（例如，Web/JS/TS 项目普遍使用 2 空格）
 [*]
-indent_style = space     # 缩进使用空格
-indent_size = 2          # 默认缩进大小为 2
-end_of_line = lf         # 换行符为 LF
-charset = utf-8          # 文件编码为 utf-8
-trim_trailing_whitespace = true # 去除行尾多余空格
-insert_final_newline = true     # 文件末尾保留一个空行
-
-# 仅匹配 Python 文件
-[*.py]
-indent_style = space
-indent_size = 4          # 覆盖：Python 文件缩进为 4
-
-# 匹配 Markdown 文件
-[*.md]
 indent_style = space
 indent_size = 2
-trim_trailing_whitespace = false # Markdown 中行尾空格可能有意义
+# 新增：tab_width 应始终等于 indent_size，以防意外按下 tab 键
+tab_width = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# 新增：设置一个合理的默认最大行长 (与 Prettier 默认值一致)
+max_line_length = 80
+
+
+# ----------------------------------------------------------------------
+# [!] 覆盖：Python (PEP 8 规范)
+# ----------------------------------------------------------------------
+[*.py]
+indent_style = space
+indent_size = 4
+tab_width = 4
+# 新增：遵循 Black 格式化工具的默认行长 (您之前提到过在使用)
+max_line_length = 88
+
+
+# ----------------------------------------------------------------------
+# [!] 覆盖：Shell 脚本与构建文件
+# ----------------------------------------------------------------------
+# .sh, .bash, Dockerfile, .conf 等通常使用 4 空格
+[*.{sh,bash,zsh,fish,conf}, Dockerfile]
+indent_style = space
+indent_size = 4
+tab_width = 4
+
+
+# ----------------------------------------------------------------------
+# [!] 覆盖：Makefile (!!! 必须使用 Tab !!!)
+# ----------------------------------------------------------------------
+# 这是 .editorconfig 最重要的覆盖规则之一
+[Makefile]
+indent_style = tab
+# (indent_size/tab_width 在 tab 模式下通常不用设置，但设置了更保险)
+
+
+# ----------------------------------------------------------------------
+# [!] 覆盖：文档类文件
+# ----------------------------------------------------------------------
+[*.{md,txt,mdx}]
+# 覆盖：Markdown 中行尾空格可能有意义（用于换行）
+trim_trailing_whitespace = false
+# 覆盖：文档内容不应限制行长
+max_line_length = off
+
+
+# ----------------------------------------------------------------------
+# [!] 覆盖：数据与配置格式
+# ----------------------------------------------------------------------
+# YAML 对缩进极其敏感，明确规定为 2 空格
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# XML, TOML, INI 等配置通常使用 4 空格更易读
+[*.{xml,toml,ini,cfg,properties}]
+indent_style = space
+indent_size = 4
+tab_width = 4
