@@ -49,8 +49,9 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "git.branchProtection": ["main", "master"], // 专业设置：防止误删主分支
+  "git.decorations.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
-
+  "problems.decorations.enabled": false,
   // -----------------------------------------------------------------
   // 4. Web 开发 (JS/TS/React/JSON) - 设为默认
   // -----------------------------------------------------------------
