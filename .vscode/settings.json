@@ -25,6 +25,7 @@
   "breadcrumbs.enabled": true,
   "editor.guides.indentation": true, // 显示缩进指南
   "editor.guides.bracketPairs": "active", // 高亮活动的括号对
+  "editor.semanticHighlighting.enabled": true,
   // -----------------------------------------------------------------
   // 2. 文件与工作区 (Files & Workbench)
   // -----------------------------------------------------------------
