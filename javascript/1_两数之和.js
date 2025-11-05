@@ -13,10 +13,11 @@ const twoSum = function (nums, target) {
   return [];
 };
 
-console.log(twoSum([1, 2, 3, 4, 5], 7));
+console.log(twoSum([1, 2, 3, 4, 3, 5], 7));
 
 const findAllSumsMap = function (nums, target) {
   const dict = new Map(); // 存储: number -> [index1, index2, ...]
+  const results = [];
   for (let i = 0; i < nums.length; i++) {
     const currentNum = nums[i];
     const diff = target - currentNum;
@@ -43,10 +44,10 @@ const findAllSumsMap = function (nums, target) {
     dict.set(currentNum, indices);
   }
 
+  console.log(dict, "test");
+
   return results;
 };
 
 // 示例：
-console.log(findAllSumsMap([1, 2, 3, 4, 5], 7)); // 输出: [[1, 4], [2, 3]]
-console.log(findAllSumsMap([3, 3, 3], 6)); // 输出: [[0, 1], [0, 2], [1, 2]]
-console.log(findAllSumsMap([2, 7, 11, 2, 15], 9)); // 输出: [[0, 1], [1, 3]]
+console.log(findAllSumsMap([1, 2, 3, 4, 3, 5], 7)); // 输出: [[1, 4], [2, 3]]
