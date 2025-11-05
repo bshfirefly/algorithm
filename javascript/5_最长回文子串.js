@@ -29,3 +29,5 @@ var longestPalindrome = function (s) {
 
   return s.substring(start, end + 1);
 };
+
+console.log(longestPalindrome("baab"));

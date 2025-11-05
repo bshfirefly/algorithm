@@ -4,8 +4,8 @@
   // 1. 编辑器核心设置 (Editor Core)
   // -----------------------------------------------------------------
 
-  "editor.fontSize": 15,
-  "editor.fontFamily": "Google Sans Code",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "Maple Mono NF CN",
   "editor.fontLigatures": true,
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
