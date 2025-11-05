@@ -5,13 +5,18 @@
   // -----------------------------------------------------------------
 
   "editor.fontSize": 16,
+  "editor.lineHeight": 1.5,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.enabled": true,
+  "workbench.tips.enabled": false,
+  "terminal.integrated.minimumContrastRatio": 2.5,
+
   "editor.fontFamily": "Maple Mono NF CN",
   "editor.fontLigatures": true,
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "editor.wordWrap": "on", // 专业设置：对 Markdown 和文档友好
-  "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary", // 只在选中时显示空格
   "editor.cursorBlinking": "smooth",
   "editor.smoothScrolling": true,
@@ -20,7 +25,6 @@
   "breadcrumbs.enabled": true,
   "editor.guides.indentation": true, // 显示缩进指南
   "editor.guides.bracketPairs": "active", // 高亮活动的括号对
-  "editor.lineHeight": 1.5,
   // -----------------------------------------------------------------
   // 2. 文件与工作区 (Files & Workbench)
   // -----------------------------------------------------------------
@@ -65,12 +69,7 @@
   },
 
   // ESLint 验证的目标文件类型
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   // Prettier 的个人风格配置
   "prettier.singleQuote": true,
