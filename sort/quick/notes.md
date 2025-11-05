@@ -17,6 +17,7 @@ const quick_simple = function (arr) {
     return arr;
   }
 
+
   const left = [],
     right = [];
 
