@@ -12,7 +12,6 @@ const bubble_standard = function (arr) {
     for (let j = 0; j < n - i - 1; j++) {
       if (array[j] > array[j + 1]) {
         swap(array, j, j + 1);
-
         swapFlag = true;
       }
     }

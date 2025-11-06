@@ -1,96 +1,109 @@
 # ========================================================================
-# EditorConfig v2.0 - 专业项目配置文件
+# EditorConfig v3.0 - 终极版 (Ultimate Edition)
 #
-# 这是一个统一的、专业的根配置文件。
-# 它为代码文件（如 JS/TS）建立了合理的默认值，
-# 并为特殊文件类型（如 Markdown, Python, Makefiles）
-# 提供了关键的覆盖，以便与自动格式化工具（如 Prettier, Black）
-# 协同工作。
+# 这是一个为大型、专业、混合语言项目设计的根配置文件。
+# 它基于 v2.0 的专业经验（特别是 Markdown 和 Makefile 的规则），
+# 并进行了“极致”的丰富。
+#
+# 核心原则：
+# 1. [*] 全局规则只负责基础文本（换行符、编码）。
+# 2. 为所有已知的代码/配置类型建立明确的缩进标准。
+# 3. 为与格式化工具 (Prettier, Black, gofmt) 冲突的
+#    特殊文件提供“关键覆盖”。
 # ========================================================================
 
 # 标记为根配置文件，EditorConfig 将停止在父目录中查找
 root = true
 
 
-# --- [1] 全局默认 (适用于所有文件) -----------------------------------
+# --- [1] 全局基础规则 (适用于所有文件) --------------------------------
 #
-# 这些是项目的“基础”规则。
-# 我们默认采用现代 Web/JS/TS 项目的风格 (2 空格, 100 行长)。
+# 这是最基础的层。我们只定义所有文本文件都应遵守的规则，
+# 不在这里规定“缩进”或“行长”，因为不存在“全局通用”的缩进。
 [*]
 end_of_line = lf
 charset = utf-8
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+
+# --- [2] 现代 Web & 脚本 (2 空格标准) --------------------------------
+#
+# 这是“默认的”代码标准，适用于所有现代 Web 开发和脚本。
+# 我们明确地列出这些文件，而不是依赖 [*]。
+[*.{js,jsx,ts,tsx,mjs,cjs}]
+[*.{json,jsonc,yml,yaml,html,css,scss,less,sass,postcss}]
+[*.{vue,svelte,astro}]
+[*.sql, *.graphql]
 indent_style = space
 indent_size = 2
-
-# 关键：tab_width 应始终等于 indent_size
-# 这可以防止当有人意外按下 Tab 键时，产生混合缩进。
 tab_width = 2
-
-# 设置一个合理的现代行长 (100)
-# 80 太短，120 太长。
 max_line_length = 100
 
 
-# --- [2] 代码覆盖：Python (PEP 8) ------------------------------------
+# --- [3] 后端 & 系统 (4 空格标准) ------------------------------------
 #
-# 覆盖全局的 2 空格规则，以遵循 Python 的 PEP 8 规范。
-[*.py]
+# 适用于传统后端语言和系统配置文件，它们通常使用 4 空格。
+[*.{py,java,kt,scala,cs,php,rb}]
+[*.{sh,bash,zsh,fish,ps1}]
+[*.{xml,toml,ini,cfg,properties,conf}]
+[Dockerfile, Jenkinsfile]
 indent_style = space
 indent_size = 4
 tab_width = 4
-# 覆盖全局的 100 行长，以匹配 "Black" 格式化工具的默认值 88。
+max_line_length = 100
+
+
+# --- [4] 关键 & 终极覆盖 (The "Ultimate" Part) ------------------------
+#
+# 这是“极致”的体现。
+# 此处覆盖上面 [2] 和 [3] 中定义的规则，以处理“必须”不同的特例。
+
+# 特例：Python (Black Formatter)
+# 遵循 PEP 8 的 4 空格，但行长覆盖为 Black 的 88。
+[*.py]
 max_line_length = 88
 
-
-# --- [3] 文档覆盖：Markdown (最关键的覆盖) ---------------------------
-#
-# 覆盖全局规则以保护 Markdown 语法。
-[*.{md,mdx,txt}]
-# [!!!] 最关键的规则 [!!!]
-# 禁用行尾空格修剪。
-# 原因：Markdown 语法中，行尾的两个空格用于创建硬换行 (<br>)。
-# 如果设为 true，自动格式化会删除这些空格，导致换行失效。
-trim_trailing_whitespace = false
-
-# 覆盖：Markdown 中的列表使用 4 空格更易读。
-indent_style = space
+# 特例：Go (gofmt)
+# [!!!] Go 语言必须使用 Tab [!!!]
+# `gofmt` 会强制执行此操作。
+[*.go]
+indent_style = tab
 indent_size = 4
 tab_width = 4
 
-# 覆盖：纯文本/散文不应在编辑器级别限制行长。
-# 让 Prettier 等格式化工具的 "proseWrap" 选项去处理它。
-max_line_length = off
-
-
-# --- [4] 构建与脚本覆盖 ----------------------------------------------
-
-# Shell 脚本和 Dockerfile 通常使用 4 空格
-[*.{sh,bash,zsh,fish,conf}, Dockerfile]
-indent_style = space
-indent_size = 4
-tab_width = 4
-
+# 特例：Makefiles
 # [!!!] Makefiles 必须使用 Tab [!!!]
-# 这是 EditorConfig 最重要的规则之一，否则 make 会失败。
+# (继承自 v2.0 的关键规则)
 [Makefile]
 indent_style = tab
 
+# 特例：文档 (Markdown, Text)
+# [!!!] 最关键的规则 [!!!]
+# (继承自 v2.0 的关键规则)
+# 禁用行尾空格修剪，以保留 Markdown 的 <br> 换行语法。
+# 禁用行长限制，让 Prettier 等工具的 "proseWrap" 处理。
+[*.{md,mdx,txt,rst}]
+trim_trailing_whitespace = false
+max_line_length = off
+# 散文的缩进是不确定的 (列表 vs. 代码块)，
+# `unset` 允许 Prettier 等格式化工具完全接管，是最好的选择。
+indent_style = unset
+indent_size = unset
+tab_width = unset
 
-# --- [5] 数据与配置格式覆盖 -----------------------------------------
-
-# YAML 和 JSON 对缩进敏感，社区标准是 2 空格。
-[*.{yml,yaml,json}]
-indent_style = space
-indent_size = 2
-tab_width = 2
-
-# 其他配置格式（如 XML, TOML）使用 4 空格更易读。
-[*.{xml,toml,ini,cfg,properties}]
-indent_style = space
-indent_size = 4
-tab_width = 4
+# 特例：纯数据 & "Ignore" 文件 (不应被格式化)
+# .env, .lock, .log, .gitignore...
+# 这些文件不应被修剪空格，也不应被强制添加行尾换行符，
+# 因为它们的格式可能很敏感。
+[*.{env,env.*,log,bak,lock}]
+[*.{csv,tsv}]
+[.{gitignore,dockerignore,prettierignore,eslintignore,gitattributes}]
+indent_style = unset
+indent_size = unset
+tab_width = unset
+trim_trailing_whitespace = false
+insert_final_newline = false
 
 # ========================================================================
 # 文件结束

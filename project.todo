@@ -1,0 +1,54 @@
+第一阶段:
+  🎯最终交付成果:
+    一个干净的代码库:
+      ☐ 插入排序
+      ☐ 归并排序
+      ☐ 栈、队列、链表、二叉树和遍历
+      ☐ 快速排序
+      ☐ 冒泡排序
+      ☐ 选择排序
+      ☐ 关于快排,归并排序的自我理解blog
+  📚概念与理解 (Concepts & Understanding):
+    数据结构基础:
+        ✔ 什么是连续的内存空间？ @done(25-11-06 10:42)
+        ✔ 什么是指针（引用）？什么是节点 (Node)? @done(25-11-06 10:42)
+    树形结构:
+      树 (Tree) 的核心概念:
+        ✔ 弄清楚：节点 (Node)、根 (Root)、叶 (Leaf) @done(25-11-06 10:42)
+        ✔ 弄清楚：父 (Parent)、子 (Child) @done(25-11-06 10:42)
+        ✔ 弄清楚：深度 (Depth)、高度 (Height) @done(25-11-06 10:46)
+  💻编码实现任务 (Coding Implementation Tasks):
+    排序算法 (Sorting Algorithms):
+      冒泡排序 (Bubble Sort):
+        ✔ 复习 @done(25-11-06 11:06)
+        ✔ 交付 @done(25-11-06 11:06)
+      选择排序 (Selection Sort):
+        ☐ 复习
+        ☐ 交付
+      快速排序 (Quick Sort):
+        ☐ 复习
+        ☐ 交付
+      插入排序 (Insertion Sort):
+        ☐ 复习
+        ☐ 交付
+      归并排序 (Merge Sort):
+        ☐ 复习
+        ☐ 交付
+    基础数据结构 (Basic Data Structures):
+    基于数组 (Array-based):
+      ☐ 实现一个基本的栈 (Stack)：利用数组的 push 和 pop (LIFO)。
+      ☐ 实现一个基本的队列 (Queue)：利用数组的 push 和 shift (FIFO)。
+    链表 (Linked List):
+      ☐ 创建一个 Node 类。
+      ☐ 创建一个 LinkedList 类，至少包含 append (添加) 和 find (查找) 方法。
+    高级结构：树 (Advanced Structures: Trees):
+      二叉树 (Binary Tree):
+        ☐ 实现：创建一个 TreeNode 类（包含 value, left, right）。
+        ☐ 构建：手动构建一棵简单的二叉树。
+      树的遍历 (Traversals):
+        深度优先遍历 (DFS):
+          ☐ 实现：前序遍历 (Pre-order)
+          ☐ 实现：中序遍历 (In-order)
+          ☐ 实现：后序遍历 (Post-order)
+        广度优先遍历 (BFS):
+          ☐ 实现：使用你在 B 部分中实现的队列 (Queue) 来完成。
