@@ -8,6 +8,7 @@
   "editor.detectIndentation": false,
   "editor.formatOnPaste": true,
   "editor.renderWhitespace": "boundary",
+  "editor.semanticHighlighting.enabled": "configuredByTheme",
 
   // -----------------------------------------------------------------
   // 2. 文件规范 (File Hygiene) - 团队强制
@@ -49,7 +50,12 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
 
   // Prettier 的项目风格配置 (团队统一)
   "prettier.singleQuote": true,

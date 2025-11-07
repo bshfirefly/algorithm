@@ -28,10 +28,10 @@ const quickSort_recursive = function (arr, left, right) {
   }
 };
 
-const quick_standard = function (arr) {
+export const quick_standard = function (arr) {
   quickSort_recursive(arr, 0, arr.length - 1);
 
   return arr;
 };
 
-module.exports = quick_standard;
+// module.exports = quick_standard;

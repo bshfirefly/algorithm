@@ -12,7 +12,6 @@ function mergeSort(arr) {
   // 使用 .slice() 切分数组
   const leftHalf = arr.slice(0, mid);
   const rightHalf = arr.slice(mid);
-
   // 3. 递归地对左右两半进行排序，然后合并 (Conquer & Combine)
   return merge(mergeSort(leftHalf), mergeSort(rightHalf));
 }
@@ -41,9 +40,42 @@ function merge(left, right) {
   return [...mergedArray, ...left.slice(i), ...right.slice(j)];
 }
 
-// --- 示例 ---
-const myList = [8, 3, 1, 7, 0, 10, 2];
-const sortedList = mergeSort(myList);
+// // --- 示例 ---
+// const myList = [8, 3, 1, 7, 0, 10, 2];
+// const sortedList = mergeSort(myList);
 
-console.log(`原始数组: ${myList}`);
-console.log(`排序后数组: ${sortedList}`);
+// console.log(`原始数组: ${myList}`);
+// console.log(`排序后数组: ${sortedList}`);
+
+function fen(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+
+  return he(fen(left), fen(right));
+}
+
+function he(left, right) {
+  const sorted = [];
+
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      sorted.push(left[i]);
+      i++;
+    } else {
+      sorted.push(right[j]);
+      j++;
+    }
+  }
+
+  return [...sorted, ...left.slice(i), ...right.slice(j)];
+}
+
+console.log(fen([2, 3, 1, 4, 7, 5, 6]));

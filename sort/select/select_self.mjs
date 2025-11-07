@@ -2,7 +2,7 @@ const swap = (arr, i, j) => {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 };
 
-module.exports = function (arr) {
+export const select_self = function (arr) {
   const array = [...arr];
 
   const n = array.length;
@@ -23,3 +23,5 @@ module.exports = function (arr) {
 
   return array;
 };
+
+// module.exports = select_self;

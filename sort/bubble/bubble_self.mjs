@@ -2,7 +2,7 @@ const swap = function (arr, i, j) {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 };
 
-const bubble_standard = function (arr) {
+export const bubble_standard = function (arr) {
   const array = [...arr];
   const n = array.length;
 
@@ -24,4 +24,4 @@ const bubble_standard = function (arr) {
   return array;
 };
 
-module.exports = bubble_standard;
+// module.exports = bubble_standard;
