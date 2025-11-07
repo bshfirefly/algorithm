@@ -2,7 +2,7 @@ const swap = function (arr, i, j) {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 };
 
-const bubble_standard = function (arr) {
+export const bubble_standard = function (arr) {
   const array = [...arr];
   const n = array.length;
 
@@ -12,7 +12,6 @@ const bubble_standard = function (arr) {
     for (let j = 0; j < n - i - 1; j++) {
       if (array[j] > array[j + 1]) {
         swap(array, j, j + 1);
-
         swapFlag = true;
       }
     }
@@ -25,4 +24,4 @@ const bubble_standard = function (arr) {
   return array;
 };
 
-module.exports = bubble_standard;
+// module.exports = bubble_standard;
