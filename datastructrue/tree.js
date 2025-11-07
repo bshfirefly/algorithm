@@ -1,3 +1,5 @@
+import { Queue } from "./queue.mjs";
+
 class TreeNode {
   #val;
   #left;
@@ -90,3 +92,32 @@ function postOrder(root) {
 
 postOrder(n1);
 console.log(postList);
+
+// 广度优先遍历
+function levelOrderTraversal(root) {
+  if (!root) {
+    return [];
+  }
+
+  const queue = new Queue();
+  const result = [];
+
+  queue.enqueue(n1);
+
+  while (!queue.isEmpty()) {
+    let cur = queue.dequeue();
+
+    result.push(cur.val);
+
+    if (cur.left) {
+      queue.enqueue(cur.left);
+    }
+
+    if (cur.right) {
+      queue.enqueue(cur.right);
+    }
+  }
+  return result;
+}
+
+console.log(levelOrderTraversal(n1));
